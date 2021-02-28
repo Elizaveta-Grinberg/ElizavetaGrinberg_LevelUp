@@ -1,6 +1,6 @@
-package homework_number3.products;
+package homework_number_4.products;
 
-import homework_number3.Calories;
+import homework_number_4.Calories;
 
 import java.util.Objects;
 

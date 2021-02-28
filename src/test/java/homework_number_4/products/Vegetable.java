@@ -1,6 +1,6 @@
-package homework_number3.products;
+package homework_number_4.products;
 
-import homework_number3.Calories;
+import homework_number_4.Calories;
 
 import java.util.Objects;
 
@@ -16,7 +16,7 @@ public class Vegetable extends Product implements Calories {
     }
 
     @Override
-    public void countKkal(double kkal, double gramms) {
+    public void countKkal(double kkal, double gramms) throws NullPointerException {
         this.kkal = kkal;
         this.gramm = gramms;
         double result = (kkal * 100) / gramms;
