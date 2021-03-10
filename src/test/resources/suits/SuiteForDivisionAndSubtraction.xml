@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Calculator Suite Div and Subtr">
+
+    <test name="Test Div and Subtr Suite">
+        <classes>
+            <class name="homework_number_5.TestDivision"/>
+            <class name="homework_number_5.TestSubtraction"/>
+        </classes>
+    </test>
+
+</suite>

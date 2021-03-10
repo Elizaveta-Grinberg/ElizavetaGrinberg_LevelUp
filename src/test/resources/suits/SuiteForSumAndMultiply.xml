@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Calculator Suite Sum and Multiply">
+
+    <test name="Test Sum and Multi Suite">
+        <classes>
+            <class name="homework_number_5.TestSum"/>
+            <class name="homework_number_5.TestMultiply"/>
+        </classes>
+    </test>
+
+</suite>
