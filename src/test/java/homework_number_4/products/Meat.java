@@ -1,6 +1,6 @@
-package homework_number3.products;
+package homework_number_4.products;
 
-import homework_number3.Calories;
+import homework_number_4.Calories;
 
 public class Meat extends Product implements Calories {
 
@@ -17,8 +17,20 @@ public class Meat extends Product implements Calories {
     public void countKkal(double kkal, double gramms) {
         this.kkal = kkal;
         this.gramm = gramms;
-        double result = (kkal * 100) / gramms;
-        System.out.println("Amount of kalories in " + getName() + " is: " + result);
+
+        try {
+            double result = (kkal * 100) / gramms;
+            if (result == Double.parseDouble(null)) {
+                throw new NullPointerException();
+            } else {
+                System.out.println("Amount of kalories in " + getName() + " is: " + result);
+            }
+        } catch (ArithmeticException e) {
+            System.out.println(e + "Division by zero is prohibited!");
+        } catch (NullPointerException e) {
+            System.out.println("Processing fail. Got a null response");
+        }
+
     }
 
     @Override

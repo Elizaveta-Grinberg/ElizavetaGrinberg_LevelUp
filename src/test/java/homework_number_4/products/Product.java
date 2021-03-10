@@ -1,4 +1,4 @@
-package homework_number3.products;
+package homework_number_4.products;
 
 import java.util.Objects;
 

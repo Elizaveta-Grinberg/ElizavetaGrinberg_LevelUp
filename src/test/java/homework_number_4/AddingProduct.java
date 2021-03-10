@@ -1,7 +1,7 @@
-package homework_number3;
+package homework_number_4;
 
 
-import homework_number3.products.Product;
+import homework_number_4.products.Product;
 
 public interface AddingProduct {
 
