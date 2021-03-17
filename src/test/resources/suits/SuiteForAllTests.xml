@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Calculator All Tests Suite">
+
+   <suite-files>
+       <suite-file path="SuiteForSumAndMultiply.xml"/>
+       <suite-file path="SuiteForDivisionAndSubtraction.xml"/>
+       <suite-file path="SuiteForTrigonomentry.xml"/>
+       <suite-file path="SuiteForOtherOperations.xml"/>
+   </suite-files>
+
+</suite>

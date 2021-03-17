@@ -8,5 +8,135 @@
     <artifactId>Testautomation_Level_UP</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <java.source.version>1.8</java.source.version>
+        <java.target.version>1.8</java.target.version>
+        <project.encoding>UTF-8</project.encoding>
+        <suiteXml>${project.basedir}/src/test/resources/suits/SuiteForAllTests.xml</suiteXml>
 
+        <maven-compiler.plugin.version>3.8.1</maven-compiler.plugin.version>
+        <!--        <maven-failsafe-plugin.version>3.0.0-M5</maven-failsafe-plugin.version>-->
+        <selenium-java.version>3.141.59</selenium-java.version>
+    </properties>
+
+    <profiles>
+        <profile>
+            <id>test-draft-selenium</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+           <properties>
+               <browser.name>chrome</browser.name>
+               <suiteXml>${project.basedir}/src/test/resources/suits/SuiteForExercise_1.xml</suiteXml>
+           </properties>
+        </profile>
+
+        <profile>
+            <id>test-send-mail</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <browser.name>chrome</browser.name>
+                <suiteXml>${project.basedir}/src/test/resources/suits/SuiteForExercise_2.xml</suiteXml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>test-delete-mail</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <browser.name>chrome</browser.name>
+                <suiteXml>${project.basedir}/src/test/resources/suits/SuiteForExercise_3.xml</suiteXml>
+            </properties>
+        </profile>
+    </profiles>
+
+    <dependencies>
+        <dependency>
+            <groupId>src.test.java.homework_number_5</groupId>
+            <artifactId>calculator</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/calculator-1.0.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.3.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium-java.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>4.3.1</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler.plugin.version}</version>
+                <configuration>
+                    <source>${java.source.version}</source>
+                    <target>${java.target.version}</target>
+                    <encoding>${project.encoding}</encoding>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.2</version>
+                <configuration>
+                    <testFailureIgnore>true</testFailureIgnore>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>${suiteXml}</suiteXmlFile>
+                    </suiteXmlFiles>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>2.22.2</version>
+
+                <configuration>
+                    <includes>
+                        <include>**/TestSum.class</include>
+                    </includes>
+                </configuration>
+
+                <executions>
+                    <execution>
+                        <id>int-test</id>
+                        <phase>integration-test</phase>
+                        <goals>
+                            <goal>integration-test</goal>
+                        </goals>
+                    </execution>
+
+                    <execution>
+                        <id>int-verify</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
