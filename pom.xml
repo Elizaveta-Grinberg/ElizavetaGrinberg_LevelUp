@@ -16,7 +16,43 @@
 
         <maven-compiler.plugin.version>3.8.1</maven-compiler.plugin.version>
         <!--        <maven-failsafe-plugin.version>3.0.0-M5</maven-failsafe-plugin.version>-->
+        <selenium-java.version>3.141.59</selenium-java.version>
     </properties>
+
+    <profiles>
+        <profile>
+            <id>test-draft-selenium</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+           <properties>
+               <browser.name>chrome</browser.name>
+               <suiteXml>${project.basedir}/src/test/resources/suits/SuiteForExercise_1.xml</suiteXml>
+           </properties>
+        </profile>
+
+        <profile>
+            <id>test-send-mail</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <browser.name>chrome</browser.name>
+                <suiteXml>${project.basedir}/src/test/resources/suits/SuiteForExercise_2.xml</suiteXml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>test-delete-mail</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <browser.name>chrome</browser.name>
+                <suiteXml>${project.basedir}/src/test/resources/suits/SuiteForExercise_3.xml</suiteXml>
+            </properties>
+        </profile>
+    </profiles>
 
     <dependencies>
         <dependency>
@@ -32,6 +68,18 @@
             <artifactId>testng</artifactId>
             <version>7.3.0</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium-java.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>4.3.1</version>
         </dependency>
     </dependencies>
 

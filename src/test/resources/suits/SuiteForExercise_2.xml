@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Test send Mail in Mail Agent">
+    <test name="Send Mail.ru">
+        <classes>
+            <class name="homework_number_6.Exercise_2"/>
+        </classes>
+
+    </test>
+
+
+</suite>
